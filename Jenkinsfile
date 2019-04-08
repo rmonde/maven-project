@@ -31,12 +31,12 @@ pipeline{
             parallel{
                 stage('Deploy to staging'){
                     steps {
-                        bat "winscp -i F:\\Study\\AWS\\myKeyPair.ppk **/target/*.war ubuntu@${params.tomcat_dev}:/var/lib/tomcat8/webapps/ROOT"
+                        bat "WinSCP -i F:\\Study\\AWS\\myKeyPair.ppk **/target/*.war ubuntu@${params.tomcat_dev}:/var/lib/tomcat8/webapps/ROOT"
                     }
                 }
                 stage('Deploy to production'){
                     steps {
-                        bat "winscp -i F:\\Study\\AWS\\myKeyPair.ppk **/target/*.war ubuntu@${params.tomcat_prod}:/var/lib/tomcat8/webapps/ROOT"
+                        bat "WinSCP -i F:\\Study\\AWS\\myKeyPair.ppk **/target/*.war ubuntu@${params.tomcat_prod}:/var/lib/tomcat8/webapps/ROOT"
                     }
                 }
             }
