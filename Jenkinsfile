@@ -8,7 +8,7 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                sh "mvn clean package"
+                bat "mvn clean package"
             }
             post{
                 always{
@@ -27,12 +27,12 @@ pipeline{
             parallel{
                 stage('Deploy to staging'){
                     steps {
-                        sh "winscp -i F:\\Study\\AWS\\myKeyPair.ppk **/target/*.war ubuntu@${params.tomcat_dev}:/var/lib/tomcat8/webapps/ROOT"
+                        bat "winscp -i F:\\Study\\AWS\\myKeyPair.ppk **/target/*.war ubuntu@${params.tomcat_dev}:/var/lib/tomcat8/webapps/ROOT"
                     }
                 }
                 stage('Deploy to production'){
                     steps {
-                        sh "winscp -i F:\\Study\\AWS\\myKeyPair.ppk **/target/*.war ubuntu@${params.tomcat_prod}:/var/lib/tomcat8/webapps/ROOT"
+                        bat "winscp -i F:\\Study\\AWS\\myKeyPair.ppk **/target/*.war ubuntu@${params.tomcat_prod}:/var/lib/tomcat8/webapps/ROOT"
                     }
                 }
             }
