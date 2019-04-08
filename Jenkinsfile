@@ -3,6 +3,7 @@ pipeline{
 
     tools {
         maven 'local-maven'
+        java 'localJava'
     }
 
     parameters {
