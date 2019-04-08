@@ -5,6 +5,9 @@ pipeline{
         string(name: 'tomcat_dev', defaultValue: '3.87.210.247', description: 'Staging Server')
         string(name: 'tomcat_prod', defaultValue: '3.85.193.45', description: 'Production Server')
     }
+    tools {
+        maven 'local-maven'
+    }
     stages{
         stage("Build"){
             steps{
