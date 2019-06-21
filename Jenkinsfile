@@ -12,7 +12,7 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                bat "mvn clean package"
+                sh "mvn clean package" // add bat while running it on windows instance/server
             }
             post{
                 always{
